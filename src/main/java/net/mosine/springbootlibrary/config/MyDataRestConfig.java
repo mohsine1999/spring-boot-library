@@ -1,6 +1,7 @@
 package net.mosine.springbootlibrary.config;
 
 import net.mosine.springbootlibrary.entities.Book;
+import net.mosine.springbootlibrary.entities.Review;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -20,8 +21,12 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
                 HttpMethod.PUT
         };
     configuration.exposeIdsFor(Book.class);
+        configuration.exposeIdsFor(Review.class);
 
     disableHttpMethods(Book.class, configuration, theUnsupporttedActions);
+    disableHttpMethods(Review.class, configuration, theUnsupporttedActions);
+
+
     /* Configure CORS Mapping */
         cors.addMapping(configuration.getBasePath() + "/**")
                 .allowedOrigins(theAllowedOrigins);
