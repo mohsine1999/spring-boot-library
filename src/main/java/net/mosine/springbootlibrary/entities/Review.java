@@ -1,11 +1,13 @@
 package net.mosine.springbootlibrary.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "review")
 public class Review {
 
